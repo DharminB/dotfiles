@@ -1,4 +1,4 @@
 setlocal commentstring=//\ %s
 setlocal foldmethod=syntax
 setlocal nofoldenable
-setlocal foldnestmax=3
+setlocal foldnestmax=5

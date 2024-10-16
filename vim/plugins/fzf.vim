@@ -10,3 +10,4 @@ nnoremap <leader>om :Marks<CR>
 nnoremap <leader>or :Rg<CR>
 nnoremap <leader>ot :Tags<CR>
 nnoremap <leader><space> :b#<CR>
+nnoremap <leader>oR :Rg <C-R><C-W><CR>
