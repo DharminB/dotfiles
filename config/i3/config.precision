@@ -318,6 +318,7 @@ for_window [class="Spotify"] move to workspace 10
 
 for_window [title="WhatsApp - Brave"] move to workspace 9
 for_window [title="Gmail - Brave"] move to workspace 9
+for_window [title="Outlook - Brave"] move to workspace 9
 
 # for_window [title="Spotify – Web Player - Brave"] move to workspace 10
 
@@ -363,6 +364,11 @@ exec --no-startup-id xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 #
 ## All messaging apps on workstation 9
 exec --no-startup-id brave-browser-beta --new_window mail.google.com
+
+exec --no-startup-id brave-browser-beta --new_window web.whatsapp.com
+
+exec --no-startup-id brave-browser-beta --new_window outlook.office.com/mail/
+
 # open skype
 exec --no-startup-id skype
 
