@@ -27,12 +27,13 @@ export ROSCONSOLE_FORMAT='[${severity}] [${time}] [${node}]: ${message}'
 # roslaunch gbot robot.launch |& tee /home/ropod/.ros/kelo/log/real_robot_launch_\$(date +%F_%T).log
 
 # use the previously chose catkin workspace
+source /opt/ros/noetic/setup.zsh
 source $(cat ~/.config/catkin_workspace/chosen_catkin_workspace)
 
 function _cabin()
 {
     local -a args arg
-    args="$(ls /home/dharmin/noetic/src/navigation/cabin_nav/config)"
+    args="$(roscd cabin_nav && ls config)"
     arg=("${(f)args}")
     _describe 'command' arg
 }
