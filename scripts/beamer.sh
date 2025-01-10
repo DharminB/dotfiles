@@ -1,6 +1,7 @@
 #!/bin/bash
 
-INTERNAL_OUTPUT="eDP-1"
+# INTERNAL_OUTPUT="eDP-1"
+INTERNAL_OUTPUT=$(xrandr | grep ' connected ' | awk '{print $1}' | grep -i 'edp')
 EXTERNAL_OUTPUT=$(xrandr | grep ' connected ' | awk '{print $1}' | grep -v $INTERNAL_OUTPUT)
 
 # if no external output connected; reset to default
