@@ -16,6 +16,8 @@ set $terminal alacritty
 bindsym $mod+Return exec --no-startup-id $terminal
 bindsym $mod+t exec i3-sensible-terminal
 
+set $browser brave-browser
+
 # kill focused window
 bindsym $mod+q kill
 
@@ -189,8 +191,8 @@ bindsym $mod+r mode "resize"
 # lock the system
 bindsym $mod+Escape exec --no-startup-id "~/dotfiles/scripts/pre_lock.sh; exec i3lock -i /tmp/screenlock.png"
 
-# open brave browser
-bindsym $mod+b exec --no-startup-id brave-browser-beta
+# open browser
+bindsym $mod+b exec --no-startup-id $browser
 
 # Pulse Audio controls
 bindsym XF86AudioMute exec --no-startup-id bash ~/dotfiles/scripts/change_volume.sh mute
@@ -363,8 +365,8 @@ exec --no-startup-id xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 #
 ## All messaging apps on workstation 9
 # start whatsweb
-exec --no-startup-id brave-browser-beta --new_window web.whatsapp.com
-exec --no-startup-id brave-browser-beta --new_window mail.google.com
+exec --no-startup-id $browser --new_window web.whatsapp.com
+exec --no-startup-id $browser --new_window mail.google.com
 # open elements
 # exec --no-startup-id element-desktop
 # open mail client
