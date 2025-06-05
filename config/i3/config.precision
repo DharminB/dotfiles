@@ -12,6 +12,8 @@ floating_modifier $mod
 
 
 set $terminal alacritty
+set $browser brave-browser
+
 # start a terminal
 bindsym $mod+Return exec --no-startup-id $terminal
 bindsym $mod+t exec i3-sensible-terminal
@@ -189,8 +191,8 @@ bindsym $mod+r mode "resize"
 # lock the system
 bindsym $mod+Escape exec --no-startup-id "~/dotfiles/scripts/pre_lock.sh; exec i3lock -i /tmp/screenlock.png"
 
-# open brave browser
-bindsym $mod+b exec --no-startup-id brave-browser-beta
+# open browser
+bindsym $mod+b exec --no-startup-id $browser
 
 # Pulse Audio controls
 bindsym XF86AudioMute exec --no-startup-id bash ~/dotfiles/scripts/change_volume.sh mute
@@ -319,6 +321,7 @@ for_window [class="Spotify"] move to workspace 10
 for_window [title="WhatsApp - Brave"] move to workspace 9
 for_window [title="Gmail - Brave"] move to workspace 9
 for_window [title="Outlook - Brave"] move to workspace 9
+for_window [title="Microsoft Teams - Brave"] move to workspace 9
 
 # for_window [title="Spotify – Web Player - Brave"] move to workspace 10
 
@@ -363,13 +366,12 @@ exec --no-startup-id bash ~/dotfiles/scripts/low_battery.sh
 exec --no-startup-id xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 #
 ## All messaging apps on workstation 9
-exec --no-startup-id brave-browser-beta --new_window mail.google.com
+exec --no-startup-id $browser --new_window mail.google.com
 
-exec --no-startup-id brave-browser-beta --new_window web.whatsapp.com
+exec --no-startup-id $browser --new_window web.whatsapp.com
 
-exec --no-startup-id brave-browser-beta --new_window outlook.office.com/mail/
+exec --no-startup-id $browser --new_window outlook.office.com/mail/
 
-# open skype
-exec --no-startup-id skype
+exec --no-startup-id $browser --new_window teams.microsoft.com/v2/
 
 exec --no-startup-id i3-msg 'workspace 9; layout tabbed'
