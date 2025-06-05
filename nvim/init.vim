@@ -4,15 +4,8 @@
 
 set confirm
 
-" change cursor in different modes
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
-
 " setting to keep cursor line in middle
 set scrolloff=5
-
-" Vim loads indentation and plugins acc. to detected filetype
-filetype plugin indent on
 
 " Vim jumps to last position when reopening a file
 if has("autocmd")
@@ -23,28 +16,18 @@ endif
 set pastetoggle=<F2>
 set clipboard=unnamedplus
 
-" Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
-
-" Enable backspace to work normally
-set backspace=start,eol,indent
-
-" Enable syntax highlighting
-syntax on
+" Automatic reloading of ~/.config/nvim/init.vim
+autocmd! bufwritepost ~/.config/nvim/init.vim source %
 
 " make hidden characters like tabs or EOL visible
 " set listchars=nbsp:_,trail:.,tab:▸\ ,eol:¬
 set listchars=nbsp:_,trail:.,tab:▸\ 
 set list
 
-" disable auto-commenting when entering new line
-autocmd FileType * setlocal formatoptions+=c formatoptions+=r formatoptions-=o
-
-" enter the current millenium
-set nocompatible
-
-" hide buffers instead of closing when switching to another buffer
-set hidden
+" auto-commenting when pressing <Enter>
+set formatoptions+=r
+" disable autowrap text when writing in insert mode
+set formatoptions-=t
 
 " use every file in current dir and child dir while "find" ind
 set path=**
@@ -53,8 +36,8 @@ set path=**
 set wildmenu
 
 " level of nesting to fold
-" set foldnestmax=0
 set nofoldenable
+" set foldnestmax=0
 " set foldlevel=0
 
 " Show line numbers
@@ -72,9 +55,6 @@ set shiftwidth=0
 " Expand tabs into spaces
 set expandtab|retab
 
-" Indent when moving to the next line while writing code
-set autoindent
-
 " setting smart indentation
 set smartindent
 
@@ -86,16 +66,9 @@ hi ColorColumn ctermbg=darkgrey guibg=lightgrey
 set colorcolumn=80
 " set textwidth
 set textwidth=80
-" disable autowrap text when writing in insert mode
-set formatoptions-=t
 " disable wrapping the lines
 set nowrap
 
-" highlight search
-set hlsearch
-
-" include search (highlights while typing the search pattern)
-set incsearch
 " Make search case insensitive
 set ignorecase
 set smartcase
@@ -106,11 +79,7 @@ set nowritebackup
 set noswapfile
 
 " Eliminate delay between INSERT and ESCAPE
-set timeoutlen=1000 ttimeoutlen=0
-
-" show pressed normal mode commands
-set showcmd
-
+set ttimeoutlen=0
 
 
 " =============================================================================
@@ -126,18 +95,17 @@ let mapleader=" "
 :command! Q q
 :command! WQ wq
 :command! Wq wq
-:command! Toc VimtexTocOpen
 :command! RemoveWhiteSpace %s/\s\+$//e
 
 " Mouse click
 " set mouse=a
 " disable scroll using mouse
-nmap <ScrollWheelUp> <nop>
-nmap <ScrollWheelDown> <nop>
-imap <ScrollWheelUp> <nop>
-imap <ScrollWheelDown> <nop>
-vmap <ScrollWheelUp> <nop>
-vmap <ScrollWheelDown> <nop>
+set mouse=
+map <ScrollWheelUp> <nop>
+map <ScrollWheelDown> <nop>
+" because terminal emulator send scroll events as up/down key events
+map <up> <nop>
+map <down> <nop>
 
 " Copy in the clipboard
 vnoremap <C-c> "+y
@@ -165,6 +133,7 @@ nnoremap Y y$
 " remove search highlight
 nnoremap <leader>n :noh<CR>
 
+nnoremap <leader><space> :b#
 
 
 " =============================================================================
@@ -172,7 +141,7 @@ nnoremap <leader>n :noh<CR>
 " =============================================================================
 
 " Automatically download vim-plug if not present
-let data_dir = '~/.vim'
+let data_dir = '~/.config/nvim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
     silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -182,30 +151,30 @@ colorscheme onedark
 
 " source all plugins
 call plug#begin(data_dir . '/plugged')
-source ~/.vim/plugins/ultisnips.vim
-source ~/.vim/plugins/vim-snippets.vim
-source ~/.vim/plugins/vim-commentary.vim
-source ~/.vim/plugins/vim-fugitive.vim
-source ~/.vim/plugins/vim-surround.vim
-source ~/.vim/plugins/vim-cpp-enhanced-highlight.vim
-source ~/.vim/plugins/fzf.vim
-source ~/.vim/plugins/lightline.vim
-" source ~/.vim/plugins/vim-hardtime.vim
-source ~/.vim/plugins/quick-scope.vim
-source ~/.vim/plugins/vimtex.vim
-source ~/.vim/plugins/DoxygenToolkit.vim
-source ~/.vim/plugins/vim-markdown.vim
-source ~/.vim/plugins/vim-javascript-syntax.vim
+source ~/.config/nvim/plugins/ultisnips.vim
+source ~/.config/nvim/plugins/vim-snippets.vim
+source ~/.config/nvim/plugins/vim-commentary.vim
+source ~/.config/nvim/plugins/vim-fugitive.vim
+source ~/.config/nvim/plugins/vim-surround.vim
+source ~/.config/nvim/plugins/vim-cpp-enhanced-highlight.vim
+source ~/.config/nvim/plugins/fzf.vim
+source ~/.config/nvim/plugins/lightline.vim
+" source ~/.config/nvim/plugins/quick-scope.vim
+source ~/.config/nvim/plugins/vimtex.vim
+source ~/.config/nvim/plugins/DoxygenToolkit.vim
+source ~/.config/nvim/plugins/vim-markdown.vim
+source ~/.config/nvim/plugins/vim-javascript-syntax.vim
+
+Plug 'sirtaj/vim-openscad'
+
 call plug#end()
 
-packadd! matchit
-
-source ~/.vim/plugins/my_autocomplete.vim
-source ~/.vim/plugins/switch_source_header.vim
-source ~/.vim/plugins/netrw_settings.vim
-source ~/.vim/plugins/tag_managment.vim
-source ~/.vim/plugins/terminal_build.vim
-source ~/.vim/plugins/quick_switch.vim
+source ~/.config/nvim/plugins/my_autocomplete.vim
+source ~/.config/nvim/plugins/switch_source_header.vim
+source ~/.config/nvim/plugins/netrw_settings.vim
+source ~/.config/nvim/plugins/tag_managment.vim
+source ~/.config/nvim/plugins/terminal_build.vim
+source ~/.config/nvim/plugins/quick_switch.vim
 
 
 " =============================================================================

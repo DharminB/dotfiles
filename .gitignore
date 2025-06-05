@@ -1,7 +1,7 @@
 config/ranger/history
 config/ranger/bookmarks
 config/ranger/tagged
-vim/plugged
-vim/.netrwhist
-vim/spell
+nvim/plugged
+nvim/.netrwhist
+nvim/spell
 source_list
