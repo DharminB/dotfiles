@@ -1,11 +1,11 @@
-# https://alacritty.org/config-alacritty.html
-
 ###########
 # GENERAL #
 ###########
 
-# Import additional configuration files
-general.import = []
+# [general]
+
+# Live config reload (changes require restart)
+live_config_reload = true  # Default: true
 
 # Shell program and its arguments
 #[shell]
@@ -15,11 +15,12 @@ general.import = []
 # Working directory
 working_directory = "None"  # Default: "None"
 
-# Live config reload (changes require restart)
-live_config_reload = true  # Default: true
-
 # Offer IPC using alacritty msg (unix only)
 ipc_socket = true  # Default: true
+# https://alacritty.org/config-alacritty.html
+
+# Import additional configuration files
+import = []
 
 #######
 # ENV #
