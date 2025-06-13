@@ -1,10 +1,11 @@
 # Installation Guide
 
-Add instructions for install i3 gaps
+### install i3
 
 ```
 ln -s ~/dotfiles/config/i3/config ~/.config/i3/config
 ln -s ~/dotfiles/config/i3/i3blocks.conf ~/.config/i3/i3blocks.conf
+sudo apt install i3
 
 sudo apt install ranger
 ln -s ~/dotfiles/config/ranger ~/.config/ranger
@@ -19,7 +20,11 @@ echo "/home/dharmin" > ~/.lastdir
 echo "1.0" > ~/.config/brightness
 ```
 
-# install playerctl
+### install alacritty
+
+[instructions](https://github.com/alacritty/alacritty/blob/master/INSTALL.md#prerequisites)
+
+### install playerctl
 ```
 wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/libplayerctl2_2.0.1-1_amd64.deb
 wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/playerctl_2.0.1-1_amd64.deb
@@ -36,22 +41,9 @@ sudo apt install feh
 sudo apt install imagemagick
 ```
 
-### install brave browser beta
-```
-sudo apt install apt-transport-https curl gnupg
+### install brave browser
 
-curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-prerelease.gpg add -
-
-echo "deb [arch=amd64] https://brave-browser-apt-beta.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-beta.list
-
-sudo apt update
-
-sudo apt install brave-browser-beta
-```
-
-```
-sudo apt install sylpheed
-```
+[instructions](https://brave.com/linux/#release-channel-installation)
 
 ### install and use zsh (logout and login for zsh to work)
 ```
@@ -66,9 +58,8 @@ ln -s ~/dotfiles/urxvt ~/.urxvt
 
 ### setup vim
 ```
-sudo apt install vim-gnome
-ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s ~/dotfiles/vim ~/.vim
+sudo apt install neovim
+ln -s ~/dotfiles/nvim ~/.config
 vim
 :PlugInstall
 :qa
@@ -122,18 +113,6 @@ sudo apt install xclip
 sudo apt install python-rosdep
 sudo apt install texlive-full
 sudo apt install latexmk
-```
-
-install zoom
-
-### Element riot messenger
-
-```
-sudo apt install -y wget apt-transport-https
-sudo wget -O /usr/share/keyrings/element-io-archive-keyring.gpg https://packages.element.io/debian/element-io-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/element-io-archive-keyring.gpg] https://packages.element.io/debian/ default main" | sudo tee /etc/apt/sources.list.d/element-io.list
-sudo apt update
-sudo apt install element-desktop
 ```
 
 ### Pass
