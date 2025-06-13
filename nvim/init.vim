@@ -24,10 +24,8 @@ autocmd! bufwritepost ~/.config/nvim/init.vim source %
 set listchars=nbsp:_,trail:.,tab:▸\ 
 set list
 
-" auto-commenting when pressing <Enter>
-set formatoptions+=r
-" disable autowrap text when writing in insert mode
-set formatoptions-=t
+" set formatoptions every time after a file has been opened
+autocmd BufWinEnter,BufNewFile * set formatoptions=cqrj
 
 " use every file in current dir and child dir while "find" ind
 set path=**
@@ -81,6 +79,8 @@ set noswapfile
 " Eliminate delay between INSERT and ESCAPE
 set ttimeoutlen=0
 
+" Allow switching to another file while editing
+set hidden
 
 " =============================================================================
 " Key Mappings
@@ -95,6 +95,8 @@ let mapleader=" "
 :command! Q q
 :command! WQ wq
 :command! Wq wq
+:command! BD bd
+:command! Bd bd
 :command! RemoveWhiteSpace %s/\s\+$//e
 
 " Mouse click
@@ -135,6 +137,7 @@ nnoremap <leader>n :noh<CR>
 
 nnoremap <leader><space> :b#
 
+set splitright
 
 " =============================================================================
 " Plugins

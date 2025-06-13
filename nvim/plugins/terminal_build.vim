@@ -1,9 +1,11 @@
-nnoremap <leader>TT :terminal<CR>
-nnoremap <leader>Tb :terminal bash -x .editor/build_cmd<CR>
-nnoremap <leader>Tt :terminal bash -x .editor/test_cmd<CR>
+nnoremap <leader>TT :split<CR>:terminal<CR>i
+nnoremap <leader>Tb :split<CR>:terminal bash -x .editor/build_cmd<CR>i
+nnoremap <leader>Tt :split<CR>:terminal bash -x .editor/test_cmd<CR>
+
+tnoremap <leader><Esc> <c-\><c-n>
 
 " find cmake errors and warning
-nnoremap <leader>Te gg/\v([/a-zA-z0-9_\n]+)\/\zs([a-zA-z0-9_\n]+)\.([hcp\n]+)\ze:([0-9\n]+):([0-9\n]+):\_s([\n erowanigftl]+):<CR>:set ft=terminal<CR>
+tnoremap <leader>Te <c-\><c-n>gg/\v([/a-zA-z0-9_\n]+)\/\zs([a-zA-z0-9_\n]+)\.([hcp\n]+)\ze:([0-9\n]+):([0-9\n]+):\_s([\n erowanigftl]+):<CR>:set ft=terminal<CR>
 " Command explained
 " gg                        go to beginning of file
 " /                         search for the following pattern
@@ -18,4 +20,4 @@ nnoremap <leader>Te gg/\v([/a-zA-z0-9_\n]+)\/\zs([a-zA-z0-9_\n]+)\.([hcp\n]+)\ze
 "    ([\n erowanigftl]+)     char matching (intended for 'error', 'fatal' and 'warning')
 " :set ft=terminal<CR>      set filetype to 'terminal'
 
-nnoremap <leader>cbt :terminal bash -c "catkin build --this"<CR>
+nnoremap <leader>cbt :split<CR>:terminal bash -c "catkin build --this"<CR>
