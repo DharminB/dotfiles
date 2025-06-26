@@ -1,11 +1,12 @@
 nnoremap <leader>TT :split<CR>:terminal<CR>i
 nnoremap <leader>Tb :split<CR>:terminal bash -x .editor/build_cmd<CR>i
-nnoremap <leader>Tt :split<CR>:terminal bash -x .editor/test_cmd<CR>
+nnoremap <leader>Tt :split<CR>:terminal bash -x .editor/test_cmd<CR>i
 
-tnoremap <leader><Esc> <c-\><c-n>
+autocmd TermClose term://*build_cmd lua vim.api.nvim_input("<c-\\><c-n>")
+autocmd TermClose term://*test_cmd lua vim.api.nvim_input("<c-\\><c-n>")
 
 " find cmake errors and warning
-tnoremap <leader>Te <c-\><c-n>gg/\v([/a-zA-z0-9_\n]+)\/\zs([a-zA-z0-9_\n]+)\.([hcp\n]+)\ze:([0-9\n]+):([0-9\n]+):\_s([\n erowanigftl]+):<CR>:set ft=terminal<CR>
+nnoremap <leader>Te gg/\v([/a-zA-z0-9_\n]+)\/\zs([a-zA-z0-9_\n]+)\.([hcp\n]+)\ze:([0-9\n]+):([0-9\n]+):\_s([\n erowanigftl]+):<CR>
 " Command explained
 " gg                        go to beginning of file
 " /                         search for the following pattern

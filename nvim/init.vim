@@ -16,9 +16,6 @@ endif
 set pastetoggle=<F2>
 set clipboard=unnamedplus
 
-" Automatic reloading of ~/.config/nvim/init.vim
-autocmd! bufwritepost ~/.config/nvim/init.vim source %
-
 " make hidden characters like tabs or EOL visible
 " set listchars=nbsp:_,trail:.,tab:▸\ ,eol:¬
 set listchars=nbsp:_,trail:.,tab:▸\ 
@@ -82,6 +79,8 @@ set ttimeoutlen=0
 " Allow switching to another file while editing
 set hidden
 
+set splitright
+
 " =============================================================================
 " Key Mappings
 " =============================================================================
@@ -137,7 +136,7 @@ nnoremap <leader>n :noh<CR>
 
 nnoremap <leader><space> :b#
 
-set splitright
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " =============================================================================
 " Plugins
@@ -163,11 +162,9 @@ source ~/.config/nvim/plugins/vim-cpp-enhanced-highlight.vim
 source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/lightline.vim
 " source ~/.config/nvim/plugins/quick-scope.vim
-source ~/.config/nvim/plugins/vimtex.vim
 source ~/.config/nvim/plugins/DoxygenToolkit.vim
 source ~/.config/nvim/plugins/vim-markdown.vim
 source ~/.config/nvim/plugins/vim-javascript-syntax.vim
-
 Plug 'sirtaj/vim-openscad'
 
 call plug#end()
@@ -178,6 +175,7 @@ source ~/.config/nvim/plugins/netrw_settings.vim
 source ~/.config/nvim/plugins/tag_managment.vim
 source ~/.config/nvim/plugins/terminal_build.vim
 source ~/.config/nvim/plugins/quick_switch.vim
+source ~/.config/nvim/plugins/close.vim
 
 
 " =============================================================================
