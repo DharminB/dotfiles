@@ -1,20 +1,17 @@
 #!/bin/bash
 
-if [ "$1" = "up" ]
-then
-    light -A 1%
-    if [ "$2" = "big" ]
-    then
-        light -A 9%
+if [ "$1" = "up" ]; then
+    brightnessctl set +1%
+    if [ "$2" = "big" ]; then
+        brightnessctl set +9%
     fi
 else
-    light -U 1%
-    if [ "$2" = "big" ]
-    then
-        light -U 9%
+    brightnessctl set 1%-
+    if [ "$2" = "big" ]; then
+        brightnessctl set 9%-
     fi
 fi
 
-BRIGHTNESS_PERC=$(light -G)
+BRIGHTNESS_PERC=$(brightnessctl info | grep -oP 'Current brightness: \d+ \(\K\d+%')
 s="Brightness level:" 
 notify-send -t 500 "$s" "$BRIGHTNESS_PERC"
