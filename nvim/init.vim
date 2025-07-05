@@ -161,7 +161,7 @@ source ~/.config/nvim/plugins/vim-surround.vim
 source ~/.config/nvim/plugins/vim-cpp-enhanced-highlight.vim
 source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/lightline.vim
-" source ~/.config/nvim/plugins/quick-scope.vim
+source ~/.config/nvim/plugins/quick-scope.vim
 source ~/.config/nvim/plugins/DoxygenToolkit.vim
 source ~/.config/nvim/plugins/vim-markdown.vim
 source ~/.config/nvim/plugins/vim-javascript-syntax.vim
