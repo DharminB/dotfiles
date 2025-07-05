@@ -3,14 +3,10 @@
 ### install i3
 
 ```
-ln -s ~/dotfiles/config/i3/config ~/.config/i3/config
-ln -s ~/dotfiles/config/i3/i3blocks.conf ~/.config/i3/i3blocks.conf
 sudo apt install i3
 
 sudo apt install ranger
-ln -s ~/dotfiles/config/ranger ~/.config/ranger
 sudo apt install i3blocks
-sudo apt install rxvt-unicode-256color
 sudo apt install dmenu
 sudo apt install rofi
 sudo apt install i3lock
@@ -18,6 +14,18 @@ sudo apt install pulseaudio-utils
 
 echo "/home/dharmin" > ~/.lastdir
 echo "1.0" > ~/.config/brightness
+```
+
+### Copy config files
+
+```bash
+ln -s ~/dotfiles/config/i3/config ~/.config/i3/config
+ln -s ~/dotfiles/config/i3/i3blocks.conf ~/.config/i3/i3blocks.conf
+ln -s ~/dotfiles/config/ranger ~/.config/ranger
+ln -s ~/dotfiles/config/neofetch ~/.config/
+ln -s ~/dotfiles/config/alacritty ~/.config
+ln -s ~/dotfiles/config/rofi ~/.config
+ln -s ~/dotfiles/config/zathura ~/.config
 ```
 
 ### install alacritty
@@ -33,9 +41,6 @@ sudo dpkg -i libplayerctl2_2.0.1-1_amd64.deb playerctl_2.0.1-1_amd64.deb
 sudo apt install libxrandr2
 sudo apt install scrot
 
-ln -s ~/dotfiles/Xdefaults ~/.Xdefaults
-ln -s ~/dotfiles/config/i3/config ~/.config/i3/config
-
 sudo apt install jq
 sudo apt install feh
 sudo apt install imagemagick
@@ -49,12 +54,11 @@ sudo apt install imagemagick
 ```
 sudo apt install zsh
 chsh -s /usr/bin/zsh
-```
-```
+ln -s ~/dotfiles/zshrc ~/.zshrc
 sudo apt install neofetch
-ln -s ~/dotfiles/config/neofetch ~/.config/
-ln -s ~/dotfiles/urxvt ~/.urxvt
 ```
+Log out and log back in
+
 
 ### setup vim
 ```
