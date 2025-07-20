@@ -12,23 +12,24 @@ tabs -4
 # fuzzy file finder (fzf) related settings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='find . -not \( -path "*/build/*" -prune \)\
-                                   -not \( -path "*/devel/*" -prune \)\
                                    -not \( -path "*/logs/*" -prune \)\
                                    -not \( -path "*/\.*/*" -prune \)'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND" 
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 
 # ROS stuff 
-# export ROBOT_ENV=empty-world
-# export ROBOT=youbot-brsu-arm
 # export ROBOT_ENV=brsu-c025-sim
 # export ROBOT=youbot-brsu-4
+# export ROS_DOMAIN_ID=16
+# export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+# export GZ_SIM_RESOURCE_PATH=/opt/ros/jazzy/share
 export ROSCONSOLE_FORMAT='[${severity}] [${time}] [${node}]: ${message}'
-# roslaunch gbot robot.launch |& tee /home/ropod/.ros/kelo/log/real_robot_launch_\$(date +%F_%T).log
 
-# use the previously chose catkin workspace
-source /opt/ros/noetic/setup.zsh
-source $(cat ~/.config/catkin_workspace/chosen_catkin_workspace)
+# use the previously chosen colcon workspace
+source /opt/ros/jazzy/setup.zsh
+export COLCON_WORKSPACE=$(cat ~/.config/colcon_workspace/chosen_colcon_workspace)
+source $COLCON_WORKSPACE/install/setup.zsh
+export COLCON_LOG_PATH=$COLCON_WORKSPACE/log
 
 function _cabin()
 {
@@ -41,10 +42,16 @@ compdef _cabin cabin
 compdef _cabin cabind
 compdef _cabin cabingdb
 
+if [[ ! "$PATH" == "*/home/dharmin/.local/bin*" ]]; then
+    PATH="${PATH:+${PATH}:}/home/steaps/.local/bin"
+fi
+
+[ -f ~/.ros/roscd.zsh ] && source ~/.ros/roscd.zsh
+
 # ranger file browser related settings
 export RANGER_LOAD_DEFAULT_RC=FALSE
 VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
-export BROWSER=brave-browser-beta
+export BROWSER=brave-browser
 
 # neofetch on start
 neofetch --source ~/.config/neofetch/batman3

@@ -376,7 +376,7 @@ exec --no-startup-id bash ~/dotfiles/scripts/low_battery.sh
 #synclient TouchpadOff=0
 
 # map capslock key to escape key
-exec --no-startup-id xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+exec_always --no-startup-id xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 #
 ## All messaging apps on workstation 9
 # start whatsweb
