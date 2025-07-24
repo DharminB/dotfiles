@@ -18,13 +18,14 @@ export FZF_DEFAULT_COMMAND='find . -not \( -path "*/build/*" -prune \)\
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND" 
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 
-# ROS stuff 
+# ROS stuff
+source /opt/ros/jazzy/setup.zsh
+export COLCON_WORKSPACE=/home/dharmin/jazzy
+source $COLCON_WORKSPACE/install/setup.zsh
+export ROS_DOMAIN_ID=16
+export ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET
+export COLCON_LOG_PATH=$COLCON_WORKSPACE/log
 export ROSCONSOLE_FORMAT='[${severity}] [${time}] [${node}]: ${message}'
-# roslaunch gbot robot.launch |& tee /home/ropod/.ros/kelo/log/real_robot_launch_\$(date +%F_%T).log
-
-# use the previously chose catkin workspace
-source /opt/ros/noetic/setup.zsh
-source ~/noetic/devel/setup.zsh
 
 function _cabin()
 {
@@ -37,10 +38,12 @@ compdef _cabin cabin
 compdef _cabin cabind
 compdef _cabin cabingdb
 
+[ -f ~/.ros/roscd.zsh ] && source ~/.ros/roscd.zsh
+
 # ranger file browser related settings
 export RANGER_LOAD_DEFAULT_RC=FALSE
 VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
-export BROWSER=brave-browser-beta
+export BROWSER=brave-browser
 
 # neofetch on start
 neofetch --source ~/.config/neofetch/batman3

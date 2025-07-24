@@ -21,4 +21,4 @@ nnoremap <leader>Te gg/\v([/a-zA-z0-9_\n]+)\/\zs([a-zA-z0-9_\n]+)\.([hcp\n]+)\ze
 "    ([\n erowanigftl]+)     char matching (intended for 'error', 'fatal' and 'warning')
 " :set ft=terminal<CR>      set filetype to 'terminal'
 
-nnoremap <leader>cbt :split<CR>:terminal bash -c "catkin build --this"<CR>
+nnoremap <leader>cbt :split<CR>:terminal bash -c "cbt"<CR>

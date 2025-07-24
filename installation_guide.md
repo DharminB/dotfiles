@@ -11,6 +11,7 @@ sudo apt install dmenu
 sudo apt install rofi
 sudo apt install i3lock
 sudo apt install pulseaudio-utils
+sudo apt install playerctl
 ```
 
 ### Copy config files
