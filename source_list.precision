@@ -26,19 +26,22 @@ export ROS_DOMAIN_ID=16
 export ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET
 export COLCON_LOG_PATH=$COLCON_WORKSPACE/log
 export ROSCONSOLE_FORMAT='[${severity}] [${time}] [${node}]: ${message}'
+export ROS_DISCOVERY_SERVER=localhost:11311
+# export FASTRTPS_DEFAULT_PROFILES_FILE=/home/dharmin/.ros/fastrtps_config.xml
+export ROS_SUPER_CLIENT=TRUE
+
+[ -f ~/.ros/roscd.zsh ] && source ~/.ros/roscd.zsh
 
 function _cabin()
 {
     local -a args arg
-    args="$(ls /home/dharmin/noetic/src/navigation/cabin_nav/config)"
+    args="$(ls /home/dharmin/jazzy/src/navigation/cabin_nav/config)"
     arg=("${(f)args}")
     _describe 'command' arg
 }
 compdef _cabin cabin
 compdef _cabin cabind
 compdef _cabin cabingdb
-
-[ -f ~/.ros/roscd.zsh ] && source ~/.ros/roscd.zsh
 
 # ranger file browser related settings
 export RANGER_LOAD_DEFAULT_RC=FALSE
