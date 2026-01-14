@@ -12,8 +12,8 @@ else
     notify-send -i dialog-error "Change volume" "Unknown argument"
 fi
 
-volume_string="$(bash /usr/share/i3blocks/volume)"
-s="Volume level:" 
+volume_string="$(bash /usr/share/i3blocks/volume 5 pulse)"
+s="Volume level:"
 if [ "$volume_string" = "MUTE" ]
 then
     icon="audio-volume-muted"
