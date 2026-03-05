@@ -1,7 +1,7 @@
 function! GenerateTags()
     " create .editor directory if it does not exist
     if ( !isdirectory('.editor') )
-        :call system('mkdir .editor && echo ".editor/*" >> .gitignore')
+        :call system('mkdir .editor')
     endif
 
     " remove existing tags file
