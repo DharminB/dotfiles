@@ -19,16 +19,13 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 
 # ROS stuff
+export RMW_IMPLEMENTATION=rmw_zenoh_cpp
 source /opt/ros/jazzy/setup.zsh
 export COLCON_WORKSPACE=/home/dharmin/jazzy
 source $COLCON_WORKSPACE/install/setup.zsh
-export ROS_DOMAIN_ID=16
 export ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET
 export COLCON_LOG_PATH=$COLCON_WORKSPACE/log
 export ROSCONSOLE_FORMAT='[${severity}] [${time}] [${node}]: ${message}'
-export ROS_DISCOVERY_SERVER=localhost:11311
-# export FASTRTPS_DEFAULT_PROFILES_FILE=/home/dharmin/.ros/fastrtps_config.xml
-export ROS_SUPER_CLIENT=TRUE
 
 [ -f ~/.ros/roscd.zsh ] && source ~/.ros/roscd.zsh
 
